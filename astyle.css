@@ -1,0 +1,122 @@
+@import url('https://fonts.googleapis.com/css2?family=Poppins;wght@300;400;500;600;700;800;900&display=swap');
+
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: "Raleway";
+}
+
+body{
+    background: rgb(255, 255, 255);
+    min-height: 100vh;
+    overflow-x: hidden;
+}
+
+header{
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    padding: 30px 100px;
+    display: flex;
+    justify-content: flex-start;
+    align-items: center;
+    z-index: 100;
+}
+
+.logo {
+    margin-right: 0;
+    cursor: pointer;
+	max-width:100%;
+	max-height:100%;
+    padding: 0px;
+}
+
+button {
+	margin: 0 -20px;
+	padding: 5px 15px;
+	background-color: #3a297a;
+	border: none;
+	border-radius: 50px;
+	cursor: pointer;
+	transition: all 0.3s ease 0s;
+    font-family: "Raleway";
+    color: #fff;
+    font-weight: 600;
+}
+
+button:hover{
+	background-color: rgb(0, 0, 0);
+}
+
+.navigation a {
+    text-decoration: none;
+    color: rgb(0, 0, 0);
+    padding: 6px 15px;
+    border-radius: 20px;
+    margin: 0 10px;
+    font-weight: 600;
+}
+
+.navigation a:hover, .navigation a.active {
+    color: #0d4242ff;
+}
+.parallax {
+    position: relative;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+}
+
+#text {
+    position: absolute;
+    font-size: 5em;
+    color: #ffe9a0;
+    text-shadow: 2px 2px 4px rgba(0, 0, 0, .2);
+    -webkit-text-stroke: 2px black;
+}
+
+#text2 {
+    position: absolute;
+    font-size: 5em;
+    color: #ffe9a0;
+    text-shadow: 2px 2px 4px rgba(0, 0, 0, .2);
+    -webkit-text-stroke: 2px black;
+}
+
+.parallax img {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    pointer-events: none;
+}
+
+.sec{
+    position: relative;
+    background: #ffd685;
+    padding: 100px;
+}
+
+.sec h2 {
+    font-size: 3em;
+    color: #fff;
+    margin-bottom: 10px;
+}
+
+.sec p {
+    font-size: 1em;
+    color: #fff;
+    font-weight: 300
+}
+
+.tab {
+    position: relative;
+    background: #fff;
+    padding: 20px;
+    margin-right: 0;
+    margin-left: 0;
+}
+
