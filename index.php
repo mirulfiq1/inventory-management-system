@@ -1,7 +1,7 @@
 <?php
   ob_start();
   require_once('includes/load.php');
-  if($session->isUserLoggedIn(true)) { redirect('admin.php', false);}
+  if($session->isUserLoggedIn(true)) { redirect('index.php', false);}
 ?>
 
 <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.4/css/bootstrap.min.css"/>
