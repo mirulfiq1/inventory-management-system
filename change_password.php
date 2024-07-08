@@ -36,7 +36,114 @@
     }
   }
 ?>
-<?php include_once('layouts/header.php'); ?>
+
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.4/css/bootstrap.min.css"/>
+    <link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/bootstrap-datepicker/1.3.0/css/datepicker3.min.css" />
+    <link rel="stylesheet" href="libs/css/main.css" />
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/water.css@2/out/water.css">
+
+    <header id="header">
+  <div class="header-content">
+    <div class="rectangle"></div>
+  </div>
+</header>
+
+    <style>
+
+#header {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+  }
+ .rectangle {
+    width: 100%;
+    height: 200px;
+    background-color: #202b38;
+  }
+
+.login-page {
+    width: 350px;
+    padding: 0 20px;
+    background-color: #212121;
+    border: 1px solid #333;
+    margin: 0 auto;
+    justify-content: center;
+    position: absolute;
+    top: 50%; 
+    left: 50%;
+    transform: translate(-50%, -50%); 
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.5);
+    color: #fff;
+}
+
+.login-page .text-center {
+    color: #fff; /* White text color for headings */
+}
+
+.login-page .form-control {
+    background-color: #333; /* Dark gray input background */
+    border: 1px solid #444; /* Dark gray input border */
+    color: #fff; /* White input text color */
+}
+
+.login-page .btn-danger {
+    background-color: #660000; /* Dark red button background */
+    border-color: #660000; /* Dark red button border */
+    color: #fff; /* White button text color */
+}
+
+.login-page .forget a, .login-page .register a {
+    color: #fff; /* White link color */
+    text-decoration: underline;
+}
+
+.login-page .forget a:hover, .login-page .register a:hover {
+    color: #ccc; /* Light gray link hover color */
+}
+
+.btn {
+    border-radius: 3px;
+    -webkit-transition: all 300ms ease-in-out;
+    -moz-transition: all 300ms ease-in-out;
+    transition: all 300ms ease-in-out;
+}
+.btn-info {
+    color: #fff;
+    background-color: #5bc0de;
+    border-color: #46b8da;
+}
+.btn {
+    display: inline-block;
+    padding: 6px 12px;
+    margin-bottom: 0;
+    font-size: 14px;
+    font-weight: 400;
+    line-height: 1.42857143;
+    text-align: center;
+    white-space: nowrap;
+    vertical-align: middle;
+    -ms-touch-action: manipulation;
+    touch-action: manipulation;
+    cursor: pointer;
+    -webkit-user-select: none;
+    -moz-user-select: none;
+    -ms-user-select: none;
+    user-select: none;
+    background-image: none;
+    border: 1px solid transparent;
+    border-radius: 4px;
+    display: block;
+    margin: 0 auto;
+    display: flex;
+    justify-content: center;
+}
+
+</style>
+
+
+
+
 <div class="login-page">
     <div class="text-center">
        <h3>Change your password</h3>

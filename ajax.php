@@ -26,34 +26,70 @@
       echo json_encode($html);
    }
  ?>
- <?php
- // find all product
-  if(isset($_POST['p_name']) && strlen($_POST['p_name']))
-  {
-    $product_title = remove_junk($db->escape($_POST['p_name']));
-    if($results = find_all_product_info_by_title($product_title)){
-        foreach ($results as $result) {
+<?php
+// find all product
+if(isset($_POST['p_name']) && strlen($_POST['p_name'])) {
+  $product_title = remove_junk($db->escape($_POST['p_name']));
+  if($results = find_all_product_info_by_title($product_title)){
+      foreach ($results as $result) {
+          $html.= "<tr>";
+          $html.= "<td id=\"s_name\">".$result['name']."</td>";
+          $html.= "<input type=\"hidden\" name=\"s_id\" value=\"{$result['id']}\">";
+          $html.= "<td>";
+          $html.= "<input type=\"text\" class=\"form-control\" name=\"price\" value=\"".$result['sale_price']."\">";
+          $html.= "</td>";
+          $html.= "<div class=\"container\">";
+          $html.= "<td id=\"s_qty\">";
+          $html.= "<button type=\"button\" id=\"decrement\" onclick=\"updateQuantity(this, -1)\">-</button>";
+          $html.= "<input type=\"text\" class=\"form control quantity\" name=\"quantity\" value=\"1\">";
+          $html.= "<button type=\"button\" id=\"increment\" onclick=\"updateQuantity(this, 1)\">+</button>";
+          $html.= "</td>";
+          $html.= "</div>";
+          $html.= "<td>";
+          $html.= "<input type=\"text\" class=\"form-control\" name=\"total\" value=\"".$result['sale_price']."\">";
+          $html.= "</td>";
+          $html.= "<td>";
+          $html.= "<input type=\"date\" class=\"form-control datePicker\" name=\"date\" data-date data-date-format=\"yyyy-mm-dd\">";
+          $html.= "</td>";
+          $html.= "<td>";
+          $html.= "<button type=\"submit\" name=\"add_sale\" class=\"btn btn-primary\">Add sale</button>";
+          $html.= "</td>";
+          $html.= "</tr>";
+          
+          $html .= "<script>
 
-          $html .= "<tr>";
+function updateQuantity(button, increment) {
+  const quantityInput = button.parentNode.querySelector('.quantity');
+  const currentValue = parseInt(quantityInput.value);
+  const newValue = currentValue + increment;
+  quantityInput.value = newValue;
+  updateTotal(quantityInput);
 
-          $html .= "<td id=\"s_name\">".$result['name']."</td>";
-          $html .= "<input type=\"hidden\" name=\"s_id\" value=\"{$result['id']}\">";
-          $html  .= "<td>";
-          $html  .= "<input type=\"text\" class=\"form-control\" name=\"price\" value=\"{$result['sale_price']}\">";
-          $html  .= "</td>";
-          $html .= "<td id=\"s_qty\">";
-          $html .= "<input type=\"text\" class=\"form-control\" name=\"quantity\" value=\"1\">";
-          $html  .= "</td>";
-          $html  .= "<td>";
-          $html  .= "<input type=\"text\" class=\"form-control\" name=\"total\" value=\"{$result['sale_price']}\">";
-          $html  .= "</td>";
-          $html  .= "<td>";
-          $html  .= "<input type=\"date\" class=\"form-control datePicker\" name=\"date\" data-date data-date-format=\"yyyy-mm-dd\">";
-          $html  .= "</td>";
-          $html  .= "<td>";
-          $html  .= "<button type=\"submit\" name=\"add_sale\" class=\"btn btn-primary\">Add sale</button>";
-          $html  .= "</td>";
-          $html  .= "</tr>";
+  // Remove the row if quantity reaches zero
+  if (newValue === 0) {
+    button.parentNode.parentNode.remove();
+    location.reload(); // Refresh the page
+  }
+}
+
+          function updateTotal(quantityInput) {
+              const priceInput = quantityInput.parentNode.parentNode.querySelector('[name=\"price\"]');
+              const totalInput = quantityInput.parentNode.parentNode.querySelector('[name=\"total\"]');
+              const quantity = parseInt(quantityInput.value);
+              const price = parseFloat(priceInput.value);
+              totalInput.value = (quantity * price).toFixed(2);
+          }
+function incrementQuantity() {
+  event.preventDefault();
+  const quantityInput = document.querySelector('.quantity');
+  const currentValue = parseInt(quantityInput.value);
+  const newValue = currentValue + 1;
+  quantityInput.value = newValue;
+  updateTotal(quantityInput);
+
+}
+
+      </script>";
 
         }
     } else {
@@ -63,3 +99,4 @@
     echo json_encode($html);
   }
  ?>
+

@@ -17,24 +17,52 @@
 <?php
   if(isset($_POST['add_user'])){
 
-   $req_fields = array('full-name','username','password','level' );
+   $req_fields = array('full-name','username','email','password','level' );
    validate_fields($req_fields);
+
+   if (empty($_POST["full-name"])) {
+    die("Name is required");
+}
+
+if ( ! filter_var($_POST["email"], FILTER_VALIDATE_EMAIL)) {
+    die("Valid email is required");
+}
+
+if (strlen($_POST["password"]) < 8) {
+    die("Password must be at least 8 characters");
+}
+
+if ( ! preg_match("/[a-z]/i", $_POST["password"])) {
+    die("Password must contain at least one letter");
+}
+
+if ( ! preg_match("/[0-9]/", $_POST["password"])) {
+    die("Password must contain at least one number");
+}
+
+if ($_POST["password"] !== $_POST["password_confirmation"]) {
+    die("Passwords must match");
+}
+
+$password = password_hash($_POST["password"], PASSWORD_DEFAULT);
 
    if(empty($errors)){
            $name   = remove_junk($db->escape($_POST['full-name']));
        $username   = remove_junk($db->escape($_POST['username']));
+       $email  = remove_junk($db->escape($_POST['email']));
        $password   = remove_junk($db->escape($_POST['password']));
        $user_level = (int)$db->escape($_POST['level']);
        $password = sha1($password);
         $query = "INSERT INTO users (";
-        $query .="name,username,password,user_level,status";
+        $query .="name,username,email,password,user_level,status";
         $query .=") VALUES (";
-        $query .=" '{$name}', '{$username}', '{$password}', '{$user_level}','1'";
+        $query .=" '{$name}', '{$username}', '{$email}', '{$password}', '{$user_level}','1'";
         $query .=")";
+        
         if($db->query($query)){
           //sucess
           $session->msg('s',"User account has been creted! ");
-          redirect('add_user.php', false);
+          redirect('users.php', false);
         } else {
           //failed
           $session->msg('d',' Sorry failed to create account!');
@@ -71,6 +99,10 @@
   .panel {
     position: relative;
   }
+  .row {
+    padding-right: 70;
+    padding-left: 70;
+  }
 
 </style>
 
@@ -95,8 +127,16 @@
                 <input type="text" class="form-control" name="username" placeholder="Username">
             </div>
             <div class="form-group">
+                <label for="email">Email</label>
+                <input type="text" class="form-control" name="email" placeholder="Email">
+            </div>
+            <div class="form-group">
                 <label for="password">Password</label>
                 <input type="password" class="form-control" name ="password"  placeholder="Password">
+            </div>
+            <div class="form-group">
+                <label for="password_confirmation">Password Confirmation</label>
+                <input type="password" class="form-control" name ="password_confirmation"  placeholder="Password Confirmation">
             </div>
             <div class="form-group">
               <label for="level">User Role</label>
@@ -116,5 +156,3 @@
 
     </div>
   </div>
-
-<?php include_once('layouts/footer.php'); ?>

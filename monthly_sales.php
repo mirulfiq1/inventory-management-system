@@ -33,6 +33,10 @@
     height: 200px;
     background-color: #f1f2f7;
   }
+  .col-md-12 {
+    padding-right: 70;
+    padding-left: 70;
+  }
 </style>
 
 

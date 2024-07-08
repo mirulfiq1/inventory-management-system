@@ -1,4 +1,5 @@
 <?php
+
   $page_title = 'Add Sale';
   require_once('includes/load.php');
   // Checkin What level user has permission to view this page
@@ -62,8 +63,58 @@
     height: 200px;
     background-color: #f1f2f7;
   }
+  .col-md-6 {
+    padding-right: 70;
+    padding-left: 70;
+  }
+  .col-md-12 {
+    padding-right: 70;
+    padding-left: 70;
+  }
+
+input[class="form control quantity"]{
+    text-align: center;
+    font-size: 15px;
+    border: none;
+    background-color: #ffffff;
+    color: #202030;
+    background-color: #51aded;
+    padding: 7px 0px 7px 0px;
+    width: 30%;
+    color: white;
+}
+
+input::-webkit-outer-spin-button,
+input::-webkit-inner-spin-button{
+    -webkit-appearance: none;
+    margin: 0;
+}
+
+button {
+    background-color: #51aded;
+    border: none;
+    font-size: 15px;
+    cursor: pointer;
+}
+
+#decrement{
+    padding: 7px 5px 7px 15px;
+    border-radius: 45px 0 0 45px;
+    color: white;
+}
+#increment{
+    padding: 7px 15px 7px 5px;
+    border-radius: 0 45px 45px 0;
+    color: white;
+}
+
+button:hover {
+  background-color: #3F6791;
+}
+
 </style>
 
+<!-- Search Box Add to Sale -->
 <div class="row">
   <div class="col-md-6">
     <?php echo display_msg($msg); ?>
@@ -71,7 +122,7 @@
         <div class="form-group">
           <div class="input-group">
             <span class="input-group-btn">
-              <button type="submit" class="btn btn-primary">Find It</button>
+            <button onclick="incrementQuantity()" type="submit" class="btn btn-primary">Add to Sale</button>
             </span>
             <input type="text" id="sug_input" class="form-control" name="title"  placeholder="Search for product name">
          </div>
@@ -80,8 +131,10 @@
     </form>
   </div>
 </div>
-<div class="row">
+<!-- Search Box Add to Sale -->
 
+
+<div class="row">
   <div class="col-md-12">
     <div class="panel panel-default">
       <div class="panel-heading clearfix">
@@ -101,7 +154,9 @@
             <th> Date</th>
             <th> Action</th>
            </thead>
+       
              <tbody  id="product_info"> </tbody>
+
          </table>
        </form>
       </div>
@@ -110,4 +165,11 @@
 
 </div>
 
+<script>
+
+
+      </script>
+
 <?php include_once('layouts/footer.php'); ?>
+
+

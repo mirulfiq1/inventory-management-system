@@ -52,6 +52,14 @@
     height: 200px;
     background-color: #f1f2f7;
   }
+  .col-md-7{
+    padding-right: 70;
+    padding-left: 70;
+  }
+  .col-md-5 {
+    padding-right: 70;
+    padding-left: 70;
+  }
 </style>
 
   <div class="row">

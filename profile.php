@@ -37,6 +37,10 @@
     height: 200px;
     background-color: #f1f2f7;
   }
+  .row{
+    padding-right: 70;
+    padding-left: 70;
+  }
 </style>
 
 <div class="row">

@@ -30,6 +30,10 @@
     height: 200px;
     background-color: #f1f2f7;
   }
+  .col-md-12 {
+    padding-right: 70;
+    padding-left: 70;
+  }
 </style>
 
   <div class="row">
@@ -49,6 +53,7 @@
               <tr>
                 <th class="text-center" style="width: 50px;">#</th>
                 <th> Photo</th>
+                <th class="text-center" style="width: 10%;"> Barcode </th>
                 <th> Product Title </th>
                 <th class="text-center" style="width: 10%;"> Categories </th>
                 <th class="text-center" style="width: 10%;"> In-Stock </th>
@@ -69,6 +74,7 @@
                   <img class="img-avatar img-circle" src="uploads/products/<?php echo $product['image']; ?>" alt="">
                 <?php endif; ?>
                 </td>
+                <td class="text-center"> <?php echo remove_junk($product['barcode']); ?></td>
                 <td> <?php echo remove_junk($product['name']); ?></td>
                 <td class="text-center"> <?php echo remove_junk($product['categorie']); ?></td>
                 <td class="text-center"> <?php echo remove_junk($product['quantity']); ?></td>

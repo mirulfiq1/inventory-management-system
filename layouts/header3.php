@@ -94,7 +94,7 @@
           <ul class="info-menu list-inline list-unstyled">
           <ul class="nav homelog">
            <li class="info">
-              <a href="dashboard.php" class="nav-link">Home</a>
+              <a href="dashboard3.php" class="nav-link">Home</a>
            </li>
            <li class="info">
               <a href="logout.php" class="nav-link">Logout</a>
@@ -146,11 +146,10 @@
         <strong><?php echo date("F j, Y, g:i a");?></strong>
         </div>
 
-
         <a class="nav-link" href="https://t.me/RashidahBookstoreTelegram">
           <i class="far fa-comments"></i>
         </a>
-     
+    
       <li class="nav-item">
         <a class="nav-link" data-widget="fullscreen" href="#" role="button">
           <i class="fas fa-expand-arrows-alt"></i>
@@ -180,59 +179,7 @@
       <ul class="nav nav-pills nav-sidebar flex-column" data-widget="treeview" role="menu" data-accordion="false">
         <!-- Add icons to the links using the .nav-icon class
              with font-awesome or any other icon font library -->
-        <li class="nav-item">
-          <a href="#" class="nav-link">
-            <i class="nav-icon fas fa-solid fa-user-tie"></i>
-            <p>
-            User Management
-              <i class="right fas fa-angle-left"></i>
-            </p>
-          </a>
-          <ul class="nav nav-treeview">
-            <li class="nav-item">
-              <a href="group.php" class="nav-link">
-                <i class="fas fa-minus nav-icon"></i>
-                <p>Manage Groups</p>
-              </a>
-            </li>
-            <li class="nav-item">
-              <a href="users.php" class="nav-link">
-                <i class="fas fa-minus nav-icon"></i>
-                <p>Manage Users</p>
-              </a>
-            </li>
-          </ul>
-        </li>
 
-        <li class="nav-item">
-          <a href="#" class="nav-link">
-            <i class="nav-icon fas fa-solid fa-box"></i>
-            <p>
-              Products
-              <i class="right fas fa-angle-left"></i>
-            </p>
-          </a>
-          <ul class="nav nav-treeview">
-            <li class="nav-item">
-              <a href="product.php" class="nav-link">
-                <i class="fas fa-minus nav-icon"></i>
-                <p>Manage Products</p>
-              </a>
-            </li>
-            <li class="nav-item">
-              <a href="add_product.php" class="nav-link">
-                <i class="fas fa-minus nav-icon"></i>
-                <p>Add Products</p>
-              </a>
-            </li>
-            <li class="nav-item">
-              <a href="categorie.php" class="nav-link">
-                <i class="fas fa-minus nav-icon"></i>
-                <p>Categories</p>
-              </a>
-            </li>
-          </ul>
-        </li>
         <li class="nav-item">
           <a href="#" class="nav-link">
             <i class="nav-icon fas fa-solid fa-chart-pie"></i>
@@ -286,25 +233,7 @@
               </a>
             </li>
           </ul>
-        </li>
-        <li class="nav-item">
-          <a href="#" class="nav-link">
-            <i class="nav-icon fas fa-solid fa-upload"></i>
-            <p>
-              Upload
-              <i class="fas fa-angle-left right"></i>
-            </p>
-          </a>
-          <ul class="nav nav-treeview">
-            <li class="nav-item">
-              <a href="media.php" class="nav-link">
-                <i class="fas fa-minus nav-icon"></i>
-                <p>Upload Image</p>
-              </a>
-            </li>
-          </ul>
-        </li>
-        
+        </li> 
       </ul>
     </nav>
     <!-- /.sidebar-menu -->

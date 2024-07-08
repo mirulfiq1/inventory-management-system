@@ -45,6 +45,12 @@
     height: 200px;
     background-color: #f1f2f7;
   }
+  .col-md-12 {
+    padding-right: 70;
+    padding-left: 70;
+  }
+
+  
 </style>
 
 
@@ -62,9 +68,10 @@
               <form class="form-inline" action="media.php" method="POST" enctype="multipart/form-data">
               <div class="form-group">
                 <div class="input-group">
-                  <span class="input-group-btn">
-                    <input type="file" name="file_upload" multiple="multiple" class="btn btn-primary btn-file"/>
-                 </span>
+                <span class="input-group-btn">
+                  <input type="file" name="file_upload" multiple="multiple" class="btn btn-primary btn-file"/>
+                  <p type="text" class="form-control">Put Photo On Button Above</p>
+                </span>
 
                  <button type="submit" name="submit" class="btn btn-default">Upload</button>
                </div>

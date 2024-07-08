@@ -64,7 +64,37 @@ if(isset($_POST['update-pass'])) {
 }
 
 ?>
-<?php include_once('layouts/header.php'); ?>
+<head>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.4/css/bootstrap.min.css"/>
+    <link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/bootstrap-datepicker/1.3.0/css/datepicker3.min.css" />
+    <link rel="stylesheet" href="libs/css/main.css" />
+</head>
+
+<header id="header">
+  <div class="header-content">
+    <div class="rectangle"></div>
+  </div>
+</header>
+
+<style>
+  #header {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+  }
+ .rectangle {
+    width: 100%;
+    height: 200px;
+    background-color: #f1f2f7;
+  }
+  .col-md-6{
+    padding-right: 70;
+    padding-left: 70;
+  }
+</style>
+
+
  <div class="row">
    <div class="col-md-12"> <?php echo display_msg($msg); ?> </div>
   <div class="col-md-6">

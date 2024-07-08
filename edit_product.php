@@ -1,3 +1,24 @@
+<head>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.4/css/bootstrap.min.css"/>
+    <link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/bootstrap-datepicker/1.3.0/css/datepicker3.min.css" />
+    <link rel="stylesheet" href="libs/css/main.css" />
+</head>
+
+<style>
+   .panel-default {
+   padding-right: 70;
+    padding-left: 70;
+    position: relative;
+  }
+
+  .panel {
+   padding-right: 70;
+    padding-left: 70;
+    position: relative;
+  }
+</style>
+
+
 <?php
   $page_title = 'Edit product';
   require_once('includes/load.php');
@@ -15,11 +36,12 @@ if(!$product){
 ?>
 <?php
  if(isset($_POST['product'])){
-    $req_fields = array('product-title','product-categorie','product-quantity','buying-price', 'saleing-price' );
+    $req_fields = array('product-title','product-barcode','product-categorie','product-quantity','buying-price', 'saleing-price' );
     validate_fields($req_fields);
 
    if(empty($errors)){
        $p_name  = remove_junk($db->escape($_POST['product-title']));
+       $p_barcode  = remove_junk($db->escape($_POST['product-barcode']));
        $p_cat   = (int)$_POST['product-categorie'];
        $p_qty   = remove_junk($db->escape($_POST['product-quantity']));
        $p_buy   = remove_junk($db->escape($_POST['buying-price']));
@@ -30,7 +52,7 @@ if(!$product){
          $media_id = remove_junk($db->escape($_POST['product-photo']));
        }
        $query   = "UPDATE products SET";
-       $query  .=" name ='{$p_name}', quantity ='{$p_qty}',";
+       $query  .=" name ='{$p_name}', barcode ='{$p_barcode}',  quantity ='{$p_qty}',";
        $query  .=" buy_price ='{$p_buy}', sale_price ='{$p_sale}', categorie_id ='{$p_cat}',media_id='{$media_id}'";
        $query  .=" WHERE id ='{$product['id']}'";
        $result = $db->query($query);
@@ -50,7 +72,7 @@ if(!$product){
  }
 
 ?>
-<?php include_once('layouts/header.php'); ?>
+
 <div class="row">
   <div class="col-md-12">
     <?php echo display_msg($msg); ?>
@@ -73,6 +95,14 @@ if(!$product){
                    <i class="glyphicon glyphicon-th-large"></i>
                   </span>
                   <input type="text" class="form-control" name="product-title" value="<?php echo remove_junk($product['name']);?>">
+               </div>
+              </div>
+              <div class="form-group">
+                <div class="input-group">
+                  <span class="input-group-addon">
+                   <i class="glyphicon glyphicon-barcode"></i>
+                  </span>
+                  <input type="text" class="form-control" name="product-barcode" value="<?php echo remove_junk($product['barcode']);?>">
                </div>
               </div>
               <div class="form-group">
@@ -144,4 +174,4 @@ if(!$product){
       </div>
   </div>
 
-<?php include_once('layouts/footer.php'); ?>
+
