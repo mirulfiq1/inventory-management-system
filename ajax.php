@@ -6,13 +6,13 @@
 <?php
  // Auto suggetion
     $html = '';
-   if(isset($_POST['product_name']) && strlen($_POST['product_name']))
+   if(isset($_POST['product_barcode']) && strlen($_POST['product_barcode']))
    {
-     $products = find_product_by_title($_POST['product_name']);
+     $products = find_product_by_title($_POST['product_barcode']);
      if($products){
         foreach ($products as $product):
            $html .= "<li class=\"list-group-item\">";
-           $html .= $product['name'];
+           $html .= $product['barcode'];
            $html .= "</li>";
          endforeach;
       } else {
@@ -93,7 +93,7 @@ function incrementQuantity() {
 
         }
     } else {
-        $html ='<tr><td>product name not resgister in database</td></tr>';
+        $html ='<tr><td>product barcode not resgister in database</td></tr>';
     }
 
     echo json_encode($html);

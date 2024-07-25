@@ -122,9 +122,9 @@ button:hover {
         <div class="form-group">
           <div class="input-group">
             <span class="input-group-btn">
-            <button onclick="incrementQuantity()" type="submit" class="btn btn-primary">Add to Sale</button>
+            <button type="submit" class="btn btn-primary">Add to Sale</button>
             </span>
-            <input type="text" id="sug_input" class="form-control" name="title"  placeholder="Search for product name">
+            <input type="text" id="sug_input" class="form-control" name="title"  placeholder="Search for product barcode">
          </div>
          <div id="result" class="list-group"></div>
         </div>
@@ -158,6 +158,7 @@ button:hover {
              <tbody  id="product_info"> </tbody>
 
          </table>
+         <button onclick="location.reload()" type="button" class="btn btn-primary" style="background-color: red; color: white;">Cancel</button>
        </form>
       </div>
     </div>
@@ -166,9 +167,12 @@ button:hover {
 </div>
 
 <script>
-
-
-      </script>
+  document.getElementById('sug-form').addEventListener('submit', function() {
+    setTimeout(function() {
+      document.getElementById('sug_input').value = '';
+    }, 0);
+  });
+</script>
 
 <?php include_once('layouts/footer.php'); ?>
 

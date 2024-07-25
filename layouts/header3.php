@@ -94,7 +94,7 @@
           <ul class="info-menu list-inline list-unstyled">
           <ul class="nav homelog">
            <li class="info">
-              <a href="dashboard3.php" class="nav-link">Home</a>
+             
            </li>
            <li class="info">
               <a href="logout.php" class="nav-link">Logout</a>
@@ -146,7 +146,7 @@
         <strong><?php echo date("F j, Y, g:i a");?></strong>
         </div>
 
-        <a class="nav-link" href="https://t.me/RashidahBookstoreTelegram">
+        <a class="nav-link" href="https://t.me/RashidahBookstoreTelegram" target="_blank">
           <i class="far fa-comments"></i>
         </a>
     
@@ -245,15 +245,20 @@
   <div class="content-wrapper iframe-mode bg-dark" data-widget="iframe" data-auto-dark-mode="true" data-loading-screen="750">
     <div class="nav navbar navbar-expand-lg navbar-dark border-bottom border-dark p-0">
       <a class="nav-link bg-danger" href="#" data-widget="iframe-close">Close</a>
-      <a class="nav-link bg-dark" href="#" data-widget="iframe-scrollleft"><i class="fas fa-angle-double-left"></i></a>
+     
       <ul class="navbar-nav" role="tablist">
       </ul>
-      <a class="nav-link bg-dark" href="#" data-widget="iframe-scrollright"><i class="fas fa-angle-double-right"></i></a>
+      
       <a class="nav-link bg-dark" href="#" data-widget="iframe-fullscreen"><i class="fas fa-expand"></i></a>
     </div>
     <div class="tab-content">
       <div class="tab-empty">
-      <h2 class="display-4">No tab selected!</h2>
+      <h2 class="display-4">Welcome to <hr>Rashidah Rashid <br> Inventory Management <br> System</h2>
+      <style>
+        .display-4{
+          text-align: center;
+        }
+        </style>
       </div>
       <div class="tab-loading">
         <div>

@@ -85,7 +85,7 @@ function tableExists($table){
     global $db;
     $username = $db->escape($username);
     $password = $db->escape($password);
-    $sql  = sprintf("SELECT id,username,email,password,user_level FROM users WHERE username ='%s' LIMIT 1", $username);
+    $sql  = sprintf("SELECT id,username,password,user_level FROM users WHERE username ='%s' LIMIT 1", $username);
     $result = $db->query($sql);
     if($db->num_rows($result)){
       $user = $db->fetch_assoc($result);
@@ -105,7 +105,7 @@ function tableExists($table){
      global $db;
      $username = $db->escape($username);
      $password = $db->escape($password);
-     $sql  = sprintf("SELECT id,username,email,password,user_level FROM users WHERE username ='%s' LIMIT 1", $username);
+     $sql  = sprintf("SELECT id,username,password,user_level FROM users WHERE username ='%s' LIMIT 1", $username);
      $result = $db->query($sql);
      if($db->num_rows($result)){
        $user = $db->fetch_assoc($result);
@@ -139,7 +139,7 @@ function tableExists($table){
   function find_all_user(){
       global $db;
       $results = array();
-      $sql = "SELECT u.id,u.name,u.username,u.email,u.user_level,u.status,u.last_login,";
+      $sql = "SELECT u.id,u.name,u.username,u.user_level,u.status,u.last_login,";
       $sql .="g.group_name ";
       $sql .="FROM users u ";
       $sql .="LEFT JOIN user_groups g ";
@@ -224,10 +224,10 @@ function tableExists($table){
   /* Request coming from ajax.php for auto suggest
   /*--------------------------------------------------------------*/
 
-   function find_product_by_title($product_name){
+   function find_product_by_title($product_barcode){
      global $db;
-     $p_name = remove_junk($db->escape($product_name));
-     $sql = "SELECT name FROM products WHERE name like '%$p_name%' LIMIT 5";
+     $p_barcode = remove_junk($db->escape($product_barcode));
+     $sql = "SELECT barcode FROM products WHERE barcode like '%$p_barcode%' LIMIT 5";
      $result = find_by_sql($sql);
      return $result;
    }
@@ -239,7 +239,7 @@ function tableExists($table){
   function find_all_product_info_by_title($title){
     global $db;
     $sql  = "SELECT * FROM products ";
-    $sql .= " WHERE name ='{$title}'";
+    $sql .= " WHERE barcode ='{$title}'";
     $sql .=" LIMIT 1";
     return find_by_sql($sql);
   }
@@ -261,7 +261,7 @@ function tableExists($table){
   /*--------------------------------------------------------------*/
  function find_recent_product_added($limit){
    global $db;
-   $sql   = " SELECT p.id,p.name,p.sale_price,p.media_id,c.name AS categorie,";
+   $sql   = " SELECT p.id,p.barcode,p.name,p.sale_price,p.media_id,c.name AS categorie,";
    $sql  .= "m.file_name AS image FROM products p";
    $sql  .= " LEFT JOIN categories c ON c.id = p.categorie_id";
    $sql  .= " LEFT JOIN media m ON m.id = p.media_id";

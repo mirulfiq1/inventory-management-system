@@ -13,6 +13,16 @@ $sales = find_all_sale();
     <link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/bootstrap-datepicker/1.3.0/css/datepicker3.min.css" />
     <link rel="stylesheet" href="libs/css/main.css" />
 </head>
+<script type="text/javascript">
+function mampus(id){
+    sts = confirm('Are you sure you want to delete this?');
+    if(sts) {
+        document.location.href="delete_sale.php?id="+id;
+    } else {
+        return false;
+    }
+}
+</script>
 
 <header id="header">
   <div class="header-content">
@@ -78,8 +88,9 @@ $sales = find_all_sale();
                   <a href="edit_sale.php?id=<?php echo (int)$sale['id'];?>" class="btn btn-warning btn-xs"  title="Edit" data-toggle="tooltip">
                     <span class="glyphicon glyphicon-edit"></span>
                   </a>
-                  <a href="delete_sale.php?id=<?php echo (int)$sale['id'];?>" class="btn btn-danger btn-xs"  title="Delete" data-toggle="tooltip">
-                    <span class="glyphicon glyphicon-trash"></span>
+                  <a href="javascript:void()" onclick="mampus(<?php echo (int)$sale['id'];?>)" class="btn btn-danger btn-xs" title="Delete" data-toggle="tooltip">
+    <span class="glyphicon glyphicon-trash"></span>
+</a>
                   </a>
                 </div>
               </td>

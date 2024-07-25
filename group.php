@@ -18,6 +18,16 @@
     <div class="rectangle"></div>
   </div>
 </header>
+<script type="text/javascript">
+function mampus(id){
+    sts = confirm('Are you sure you want to delete this?');
+    if(sts) {
+        document.location.href="delete_group.php?id="+id;
+    } else {
+        return false;
+    }
+}
+</script>
 
 <style>
   #header {
@@ -84,7 +94,7 @@
                 <a href="edit_group.php?id=<?php echo (int)$a_group['id'];?>" class="btn btn-xs btn-warning" data-toggle="tooltip" title="Edit">
                   <i class="glyphicon glyphicon-pencil"></i>
                </a>
-                <a href="delete_group.php?id=<?php echo (int)$a_group['id'];?>" class="btn btn-xs btn-danger" data-toggle="tooltip" title="Remove">
+                <a href="javascript:void()" onclick="mampus(<?php echo (int)$a_group['id'];?>)" class="btn btn-xs btn-danger" data-toggle="tooltip" title="Remove">
                   <i class="glyphicon glyphicon-remove"></i>
                 </a>
                 </div>

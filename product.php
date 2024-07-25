@@ -17,6 +17,16 @@
     <div class="rectangle"></div>
   </div>
 </header>
+<script type="text/javascript">
+function mampus(id){
+    sts = confirm('Are you sure you want to delete this?');
+    if(sts) {
+        document.location.href="delete_product.php?id="+id;
+    } else {
+        return false;
+    }
+}
+</script>
 
 <style>
   #header {
@@ -86,7 +96,7 @@
                     <a href="edit_product.php?id=<?php echo (int)$product['id'];?>" class="btn btn-info btn-xs"  title="Edit" data-toggle="tooltip">
                       <span class="glyphicon glyphicon-edit"></span>
                     </a>
-                    <a href="delete_product.php?id=<?php echo (int)$product['id'];?>" class="btn btn-danger btn-xs"  title="Delete" data-toggle="tooltip">
+                    <a href="javascript:void()" onclick="mampus(<?php echo (int)$product['id'];?>)" class="btn btn-danger btn-xs"  title="Delete" data-toggle="tooltip">
                       <span class="glyphicon glyphicon-trash"></span>
                     </a>
                   </div>

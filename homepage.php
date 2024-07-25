@@ -19,7 +19,6 @@
                 <a href="#">About</a>
                 <a href="#">FAQ</a>
                 <a href="#">Contact</a>
-                <a href="#" class="active"><button>Sign up</button></a>
                 <a href="index.php" class="active"><button>Log in</button></a>
             </nav>
     </header>

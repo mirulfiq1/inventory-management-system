@@ -14,6 +14,16 @@
     <link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/bootstrap-datepicker/1.3.0/css/datepicker3.min.css" />
     <link rel="stylesheet" href="libs/css/main.css" />
 </head>
+<script type="text/javascript">
+function mampus(id){
+    sts = confirm('Are you sure you want to delete this?');
+    if(sts) {
+        document.location.href="delete_user.php?id="+id;
+    } else {
+        return false;
+    }
+}
+</script>
 
 <header id="header">
   <div class="header-content">
@@ -87,7 +97,7 @@
                 <a href="edit_user.php?id=<?php echo (int)$a_user['id'];?>" class="btn btn-xs btn-warning" data-toggle="tooltip" title="Edit">
                   <i class="glyphicon glyphicon-pencil"></i>
                </a>
-                <a href="delete_user.php?id=<?php echo (int)$a_user['id'];?>" class="btn btn-xs btn-danger" data-toggle="tooltip" title="Remove">
+                <a href="javascript:void()" onclick="mampus(<?php echo (int)$a_user['id'];?>)" class="btn btn-xs btn-danger" data-toggle="tooltip" title="Remove">
                   <i class="glyphicon glyphicon-remove"></i>
                 </a>
                 </div>
